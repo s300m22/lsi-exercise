@@ -1,55 +1,30 @@
 # LSi Coding Exercise
 
-## Objectives
+This is my solution for the LSi coding exercise.
 
-- Add a CSS library
-- Add a URL slug for products
-- Allow for multiple images per product
-- Add a product enquiry form which sends an email to a recipient (it doesn't need to send live emails, a preview is fine)
+## What was implemented
 
-How you achieve these objectives is completely up to you.
+- Added a CSS library (Bootstrap)
+- Added URL slugs for products
+- Support for multiple images per product
+- Carousel when a product has multiple images
+- Product enquiry form (shows email preview)
 
-## Setting up the project
+## How to run
 
-The project requires [Git](https://git-scm.com/download/win), [Composer](https://getcomposer.org/download/), [NPM](https://nodejs.org/en) and [PHP 8.1+](https://www.php.net/downloads.php) with the following non-default extensions enabled:
+```bash
+git clone https://github.com/s300m22/lsi-exercise.git
+cd lsi-exercise
 
-- fileinfo
-- pdo_sqlite
+composer install
+cp .env.example .env
+php artisan key:generate
 
-These instructions presume you're installing the project in Windows on your C:\\ drive. However, feel free do do this your own way.
+touch database/database.sqlite
 
-`git clone https://github.com/scott-lsi/exercise.git`
+php artisan migrate --seed
+php artisan storage:link
 
-`cd exercise`
-
-`composer install`
-
-It may display an error after completing this but it's ok, it's because you've not configured your database connection yet.
-
-`copy .env.example .env`
-
-Configure your database connection in the .env file. For simplicity, you can create a file at `database\database.sqlite` then set the following environment variables:
-
-
-	DB_CONNECTION=sqlite
-	DB_DATABASE="C:\\exercise\\database\\database.sqlite"
-	DB_FOREIGN_KEYS=true
-
-
-`php artisan key:generate`
-
-`php artisan migrate --seed`
-
-`npm install`
-
-`php artisan serve`
-
-...and, at the same time...
-
-`npm run dev`
-
-## Submitting the project
-
-You do not need to deploy the project anywhere. Simply commit it to your GitHub account and let us know.
-
-Good luck!
+npm install
+npm run dev
+php artisan serve
