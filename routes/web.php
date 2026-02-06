@@ -20,3 +20,7 @@ Route::get('/', [PageController::class, 'home'])->name('homepage');
 Route::resource('/page', PageController::class)->only(['show']);
 
 Route::resource('/product', ProductController::class)->only(['show']);
+
+Route::post('/product/{product}/enquiry', [ProductController::class, 'enquiry'])
+    ->name('product.enquiry');
+

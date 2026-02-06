@@ -42,5 +42,28 @@
 
             <p>&pound;{{ $product->price }}</p>
         </div>
+
+        <hr>
+
+        <h3>Enquire about this product</h3>
+
+        <form method="POST" action="{{ route('product.enquiry', $product) }}">
+            @csrf
+
+            <div class="mb-3">
+                <input class="form-control" name="name" placeholder="Your name">
+            </div>
+
+            <div class="mb-3">
+                <input class="form-control" name="email" placeholder="Your email">
+            </div>
+
+            <div class="mb-3">
+                <textarea class="form-control" name="message" placeholder="Message"></textarea>
+            </div>
+
+            <button class="btn btn-primary">Send enquiry</button>
+        </form>
+
     </div>
 </x-layout>
