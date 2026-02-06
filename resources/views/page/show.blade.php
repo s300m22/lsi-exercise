@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot:title>{{ $page->title }}</x-slot>
-    
+
     <h1>{{ $page->title }}</h1>
 
     {!! $page->content !!}
